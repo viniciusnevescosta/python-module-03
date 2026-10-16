@@ -9,14 +9,15 @@ def get_player_pos() -> Coordinates:
         raw_coordinates = input(
             "Enter new coordinates as floats in format 'x,y,z': "
         )
-        parameters = raw_coordinates.split(",")
-        if len(parameters) != 3:
+        try:
+            x_text, y_text, z_text = raw_coordinates.split(",")
+        except ValueError:
             print("Invalid syntax")
             continue
         try:
-            x = float(parameters[0])
-            y = float(parameters[1])
-            z = float(parameters[2])
+            x = float(x_text)
+            y = float(y_text)
+            z = float(z_text)
             return (x, y, z)
         except ValueError as error:
             print(f"Invalid coordinate: {error}")
