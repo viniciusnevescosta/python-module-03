@@ -19,19 +19,23 @@ ACHIEVEMENTS = (
 )
 
 
-def gen_player_achievements() -> set[str]:
+def gen_player() -> set[str]:
     amount = random.randint(6, 9)
     achievements = set(random.sample(ACHIEVEMENTS[:-1], amount))
     achievements.add("Untouchable")
     return achievements
 
 
+def gen_player_achievements() -> set[str]:
+    return gen_player()
+
+
 def main() -> None:
     players = {
-        "Alice": gen_player_achievements(),
-        "Bob": gen_player_achievements(),
-        "Charlie": gen_player_achievements(),
-        "Dylan": gen_player_achievements(),
+        "Alice": gen_player(),
+        "Bob": gen_player(),
+        "Charlie": gen_player(),
+        "Dylan": gen_player(),
     }
 
     print("=== Achievement Tracker System ===")

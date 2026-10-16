@@ -14,9 +14,9 @@ def main() -> None:
         "Liam",
     ]
     capitalized_players = [name.capitalize() for name in players]
-    already_capitalized = [name for name in players if name[0].isupper()]
+    already_capitalized = [name for name in players if name[:1].isupper()]
     scores = {name: random.randint(0, 1000) for name in capitalized_players}
-    average = sum(scores.values()) / len(scores)
+    average = sum(scores.values()) / len(scores) if scores else 0.0
     high_scores = {name: score for name, score in scores.items()
                    if score > average}
 

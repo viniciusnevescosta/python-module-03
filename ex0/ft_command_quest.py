@@ -8,8 +8,8 @@ def main() -> None:
         print("No arguments provided!")
     else:
         print(f"Arguments received: {len(sys.argv) - 1}")
-        for index in range(1, len(sys.argv)):
-            print(f"Argument {index}: {sys.argv[index]}")
+        for index, argument in enumerate(sys.argv[1:], start=1):
+            print(f"Argument {index}: {argument}")
     print(f"Total arguments: {len(sys.argv)}")
 
 

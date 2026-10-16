@@ -10,7 +10,7 @@ def main() -> None:
         except ValueError:
             print(f"Invalid parameter: '{parameter}'")
 
-    if len(scores) == 0:
+    if not scores:
         print(
             "No scores provided. Usage: python3 ft_score_analytics.py "
             "<score1> <score2> ..."

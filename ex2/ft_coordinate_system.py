@@ -13,17 +13,13 @@ def get_player_pos() -> Coordinates:
         if len(parameters) != 3:
             print("Invalid syntax")
             continue
-        values: list[float] = []
-        valid = True
-        for parameter in parameters:
-            try:
-                values.append(float(parameter))
-            except ValueError as error:
-                print(f"Error on parameter '{parameter.strip()}': {error}")
-                valid = False
-                break
-        if valid:
-            return (values[0], values[1], values[2])
+        try:
+            x = float(parameters[0])
+            y = float(parameters[1])
+            z = float(parameters[2])
+            return (x, y, z)
+        except ValueError as error:
+            print(f"Invalid coordinate: {error}")
 
 
 def distance(first: Coordinates, second: Coordinates) -> float:
@@ -52,4 +48,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except EOFError:
+        print("\nCoordinate input ended.")

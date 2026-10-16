@@ -23,7 +23,7 @@ def gen_event() -> Generator[Event, None, None]:
 
 
 def consume_event(events: list[Event]) -> Generator[Event, None, None]:
-    while len(events) > 0:
+    while events:
         index = random.randrange(len(events))
         yield events.pop(index)
 

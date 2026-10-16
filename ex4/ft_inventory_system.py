@@ -23,6 +23,9 @@ def parse_inventory(parameters: list[str]) -> dict[str, int]:
 
 def main() -> None:
     print("=== Inventory System Analysis ===")
+    if len(sys.argv) == 1:
+        print("Usage: python3 ft_inventory_system.py <item:quantity> ...")
+        return
     inventory = parse_inventory(sys.argv[1:])
     print(f"Got inventory: {inventory}")
     items = list(inventory.keys())
@@ -30,7 +33,7 @@ def main() -> None:
     total = sum(inventory.values())
     print(f"Total quantity of the {len(items)} items: {total}")
 
-    if len(items) == 0 or total == 0:
+    if not items or total == 0:
         print("Inventory has no quantities to analyze")
     else:
         most_abundant = items[0]
